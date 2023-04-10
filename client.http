@@ -5,3 +5,30 @@ Content-Type: application/json
     "name": "John Doe",
     "email": "john@m.com"
 }
+
+###
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "newusername": "tan", 
+    "newpassword": "12345678",
+    "newname":"panda",
+    "newemail": "tan@gmail.com"
+   
+}
+
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username": "tan", 
+    "password": "12345678"
+   
+}
+
+###
+
+POST http://localhost:3000/login
+
