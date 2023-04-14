@@ -17,16 +17,29 @@ app.listen(port,() => {
     console.log(`Server listening at http://localhost:${port}`);
 });
 
-let dbUsers = [
+let dbUsers =[
     {
-        /*username: "Soo",
-        password: "password",
-        name: "Soo Yew Guan",
-        email: "soo@utem.edu.my"*/
+        username: "lee",
+        password: "0523",
+        name: "Elvin",
+        email: "lee@utem.edu.my"
     },
+    {
+      username: "siew",
+      password: "1003",
+      name: "panda",
+      email: "siew@utem.edu.my"
+  },
 
   ]
-  
+
+//encrypt database password by using hash (Promises)
+for (let i = 0; i < dbUsers.length; i++) {
+  bcrypt.hash(dbUsers[i].password, 10).then(hash => {
+    dbUsers[i].password = hash
+  })
+}
+
   async function login(username, password)
   {
     console.log("someone try to login with", username, password)
@@ -36,7 +49,7 @@ let dbUsers = [
     )
     if (matched) 
     {
-      // to match the actual password with the hash password
+      // to match the actual password with the hash password (async/await)
         const passmatch = await bcrypt.compare(password, matched.password)
         if (passmatch)
         {
@@ -69,7 +82,7 @@ let dbUsers = [
         }
         else
         {
-          //encrypt password by using hash
+          //encrypt password by using hash (async/await)
             const hash = await bcrypt.hash(newpassword, 10);
             
             dbUsers.push(
