@@ -27,7 +27,7 @@ let dbUsers =[
     {
       username: "siew",
       password: "1003",
-      name: "panda",
+      name: "cutepanda",
       email: "siew@utem.edu.my"
   },
 
